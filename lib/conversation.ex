@@ -45,6 +45,14 @@ defmodule Conversation do
     Stack.new
   end
 
+  def show(pid) do
+    Stack.show(pid)
+  end
+
+  def peek(pid) do
+    Stack.peek(pid)
+  end
+
   def transcript (stack) do
     Stack.push(stack, :foo)
     Stack.push(stack, :bar)
