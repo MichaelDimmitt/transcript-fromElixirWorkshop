@@ -3,10 +3,6 @@ defmodule Stack do
     spawn(fn -> loop([]) end)
   end
 
-  def push(pid, val) do
-    send(pid, {:push, val})
-  end
-
   def peek(pid) do
     send(pid, {:peek, self()})
     receive do
@@ -25,16 +21,19 @@ defmodule Stack do
     end
   end
 
+  def push(pid, val) do
+    send(pid, {:push, val})
+  end
+
   def pop(pid) do
     send(pid, {:pop, self()})
-    val = send(pid, {:pop, self()})
-
     receive do
-      {:pop, val} -> val
+      val ->
+        IO.puts "Resulting variable:  #{ inspect val } ."
+        val
     after
-       1000 -> :ok
+      0 -> :ok
     end
-
   end
 
   def loop(state) do
@@ -46,10 +45,12 @@ defmodule Stack do
           send(caller, {:peek, head})
           state
 
-        {:push, val} -> [val | state]
         {:show, caller} ->
           send(caller, {:pop, state})
           state
+
+        {:push, val} ->
+          [val | state]
 
         {:pop, caller} ->
           [head | new_state] = state
