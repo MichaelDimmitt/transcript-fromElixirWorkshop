@@ -53,10 +53,21 @@ defmodule Stack do
           [val | state]
 
         {:pop, caller} ->
-          [head | new_state] = state
-        send(caller, {:pop, head})
-        new_state
+          check(state, caller)
+
       end
     loop(new_state)
+  end
+
+  def check([], caller) do
+    send(caller, [])
+    []
+  end
+
+  def check(state, caller) do
+    IO.puts "current state:  #{ inspect state }"
+    [head | new_state] = state
+    send(caller, head)
+    new_state
   end
 end
