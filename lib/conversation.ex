@@ -3,6 +3,36 @@ defmodule Conversation do
   Documentation for Conversation.
   """
 
+  @doc """
+  Do the stuff but dont tell me.
+
+  ## Examples
+      iex> Conversation.iCanDoStuffAllTheStuffButYouNoSee
+      :ok
+  """
+
+  @doc """
+  Tell me the stuff you are doing.
+
+  ## Examples
+      iex> stack = Conversation.new
+      iex> Conversation.pop(stack)
+      iex> Conversation.pop(stack)
+      iex> Conversation.pop(stack)
+      iex> Conversation.pop(stack)
+      iex> Conversation.pop(stack)
+      :ok
+  """
+
+  def iCanDoStuffAllTheStuffButYouNoSee do
+    stack = Conversation.new
+    Conversation.pop(stack)
+    Conversation.pop(stack)
+    Conversation.pop(stack)
+    Conversation.pop(stack)
+    Conversation.pop(stack)
+  end
+
   def new do
     stack = Conversation.audience_member
     Conversation.transcript(stack)
