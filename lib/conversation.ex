@@ -9,7 +9,9 @@ defmodule Conversation do
   ## Examples
       iex> Conversation.iCanDoStuffAllTheStuffButYouNoSee
       :ok
+  """
 
+  @doc """
   Tell me the stuff you are doing.
 
   ## Examples
@@ -24,8 +26,6 @@ defmodule Conversation do
 
   def iCanDoStuffAllTheStuffButYouNoSee do
     stack = Conversation.new
-    Conversation.pop(stack)
-    Conversation.pop(stack)
     Conversation.pop(stack)
     Conversation.pop(stack)
     Conversation.pop(stack)
