@@ -34,14 +34,23 @@ defmodule Conversation do
   end
 
   def new do
-    stack = Conversation.audience_member
-    Conversation.transcript(stack)
-    Conversation.transcript(stack)
-    stack
+    person1 = Conversation.audience_member
+    Conversation.transcript(person1)
+    Conversation.transcript(person1)
+    Conversation.transcript(person1)
+    person1
   end
 
   def audience_member do
     Stack.new
+  end
+
+  def show(pid) do
+    Stack.show(pid)
+  end
+
+  def peek(pid) do
+    Stack.peek(pid)
   end
 
   def transcript (stack) do
