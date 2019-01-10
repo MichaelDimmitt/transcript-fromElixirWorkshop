@@ -13,6 +13,8 @@ defmodule Stack do
 
     receive do
       {:pop, val} -> val
+    after
+       1000 -> :ok
     end
 
   end

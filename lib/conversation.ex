@@ -3,16 +3,23 @@ defmodule Conversation do
   Documentation for Conversation.
   """
 
-  @doc """
-  Hello world.
+  def new do
+    stack = Conversation.audience_member
+    Conversation.transcript(stack)
+    Conversation.transcript(stack)
+    stack
+  end
 
-  ## Examples
+  def audience_member do
+    Stack.new
+  end
 
-      iex> Conversation.hello
-      :world
+  def transcript (stack) do
+    Stack.push(stack, :foo)
+    Stack.push(stack, :bar)
+  end
 
-  """
-  def hello do
-    :world
+  def pop(stack) do
+    Stack.pop(stack)
   end
 end

@@ -21,5 +21,18 @@ git clone https://github.com/MichaelDimmitt/transcript-fromElixirWorkshop.git;
 cd transcript-fromElixirWorkshop;
 iex -S mix;
 ```
+#Usage Below
 
+## bash
+`iex -S mix`
+
+## iex syntax:
+```elixir
+stack = Conversation.new
+Conversation.pop(stack)
+Conversation.pop(stack)
+Conversation.pop(stack)
+Conversation.pop(stack)
+Conversation.pop(stack)
+```
 
